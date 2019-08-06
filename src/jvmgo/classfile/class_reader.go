@@ -7,7 +7,7 @@ type ClassReader struct {
 }
 
 // u1
-func (self *ClassReader) readUnit8() uint8 {
+func (self *ClassReader) readUint8() uint8 {
 	val := self.data[0]
 	self.data = self.data[1:]
 	return val
