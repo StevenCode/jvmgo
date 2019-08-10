@@ -9,7 +9,7 @@ type SymRef struct {
 
 func (self *SymRef) ResolvedClass() *Class {
 	if self.class == nil {
-		self.ResolvedClass()
+		self.resolveClassRef()
 	}
 	return self.class
 }
