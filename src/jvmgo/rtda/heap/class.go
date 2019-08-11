@@ -14,6 +14,7 @@ type Class struct {
 	constantPool      *ConstantPool
 	fields            []*Field
 	methods           []*Method
+	sourceFile        string
 	loader            *ClassLoader
 	superClass        *Class
 	interfaces        []*Class
@@ -33,7 +34,15 @@ func newClass(cf *classfile.ClassFile) *Class {
 	class.constantPool = newConstantPool(class, cf.ConstantPool())
 	class.fields = newFields(class, cf.Fields())
 	class.methods = newMethods(class, cf.Methods())
+	class.sourceFile = getSourceFile(cf)
 	return class
+}
+
+func getSourceFile(cf *classfile.ClassFile) string {
+	if sfAttr := cf.SourceFileAttribute(); sfAttr != nil {
+		return sfAttr.FileName()
+	}
+	return "Unknown" // todo
 }
 
 func (self *Class) IsPublic() bool {
@@ -73,6 +82,9 @@ func (self *Class) Fields() []*Field {
 }
 func (self *Class) Methods() []*Method {
 	return self.methods
+}
+func (self *Class) SourceFile() string {
+	return self.sourceFile
 }
 func (self *Class) Loader() *ClassLoader {
 	return self.loader

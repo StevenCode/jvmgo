@@ -47,3 +47,25 @@ func desiredAssertionStatus0(frame *rtda.Frame) {
 	// todo
 	frame.OperandStack().PushBoolean(false)
 }
+
+// public native boolean isInterface();
+// ()Z
+func isInterface(frame *rtda.Frame) {
+	vars := frame.LocalVars()
+	this := vars.GetThis()
+	class := this.Extra().(*heap.Class)
+
+	stack := frame.OperandStack()
+	stack.PushBoolean(class.IsInterface())
+}
+
+// public native boolean isPrimitive();
+// ()Z
+func isPrimitive(frame *rtda.Frame) {
+	vars := frame.LocalVars()
+	this := vars.GetThis()
+	class := this.Extra().(*heap.Class)
+
+	stack := frame.OperandStack()
+	stack.PushBoolean(class.IsPrimitive())
+}

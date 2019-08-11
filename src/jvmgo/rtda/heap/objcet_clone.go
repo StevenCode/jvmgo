@@ -1,5 +1,12 @@
 package heap
 
+func (self *Object) Clone() *Object {
+	return &Object{
+		class: self.class,
+		data:  self.cloneData(),
+	}
+}
+
 func (self *Object) cloneData() interface{} {
 	switch self.data.(type) {
 	case []int8:

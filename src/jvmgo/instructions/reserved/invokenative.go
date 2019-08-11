@@ -6,6 +6,7 @@ import (
 	"jvmgo/rtda"
 )
 import _ "jvmgo/native/java/lang"
+import _ "jvmgo/native/sun/misc"
 
 // Invoke native method
 type INVOKE_NATIVE struct{ base.NoOperandsInstruction }
