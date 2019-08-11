@@ -24,7 +24,7 @@ ClassFile {
 */
 
 type ClassFile struct {
-	//magic uint32
+	//magic      uint32
 	minorVersion uint16
 	majorVersion uint16
 	constantPool ConstantPool
@@ -95,14 +95,12 @@ func (self *ClassFile) MinorVersion() uint16 {
 func (self *ClassFile) MajorVersion() uint16 {
 	return self.majorVersion
 }
-
 func (self *ClassFile) ConstantPool() ConstantPool {
 	return self.constantPool
 }
 func (self *ClassFile) AccessFlags() uint16 {
 	return self.accessFlags
 }
-
 func (self *ClassFile) Fields() []*MemberInfo {
 	return self.fields
 }

@@ -1,10 +1,8 @@
 package lang
 
-import (
-	"jvmgo/native"
-	"jvmgo/rtda"
-	"jvmgo/rtda/heap"
-)
+import "jvmgo/native"
+import "jvmgo/rtda"
+import "jvmgo/rtda/heap"
 
 const jlString = "java/lang/String"
 

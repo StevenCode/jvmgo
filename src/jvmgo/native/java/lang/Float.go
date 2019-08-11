@@ -1,10 +1,8 @@
 package lang
 
-import (
-	"jvmgo/native"
-	"jvmgo/rtda"
-	"math"
-)
+import "math"
+import "jvmgo/native"
+import "jvmgo/rtda"
 
 const jlFloat = "java/lang/Float"
 
